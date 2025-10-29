@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop Premium - Serviços para seu Pet</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-paw"></i>
+                    <span>PetShop Premium</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Cuidamos do seu Pet com Amor</h1>
+            <p>Serviços profissionais de tosa, banho e muito mais para garantir o bem-estar do seu melhor amigo</p>
+            <button class="cta-button" onclick="scrollToServices()">
+                <i class="fas fa-calendar-check"></i>
+                Agendar Serviço
+            </button>
+        </div>
+        <div class="hero-image">
+            <div class="pet-illustration">
+                <i class="fas fa-dog"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Oferecemos os melhores cuidados para seu pet</p>
+            
+            <div class="services-grid">
+                <div class="service-card" data-service="banho">
+                    <div class="service-icon">
+                        <i class="fas fa-shower"></i>
+                    </div>
+                    <h3>Banho Completo</h3>
+                    <p>Banho com produtos de qualidade, secagem e escovação</p>
+                    <div class="service-price">R$ 45,00</div>
+                    <button class="service-btn" onclick="selectService('banho', 'Banho Completo', 45)">Escolher</button>
+                </div>
+
+                <div class="service-card" data-service="tosa">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Tosa Higiênica</h3>
+                    <p>Tosa completa com acabamento profissional</p>
+                    <div class="service-price">R$ 60,00</div>
+                    <button class="service-btn" onclick="selectService('tosa', 'Tosa Higiênica', 60)">Escolher</button>
+                </div>
+
+                <div class="service-card" data-service="banho-tosa">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Banho + Tosa</h3>
+                    <p>Pacote completo com banho e tosa</p>
+                    <div class="service-price">R$ 90,00</div>
+                    <button class="service-btn" onclick="selectService('banho-tosa', 'Banho + Tosa', 90)">Escolher</button>
+                </div>
+
+                <div class="service-card" data-service="unhas">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <h3>Corte de Unhas</h3>
+                    <p>Corte profissional e seguro das unhas</p>
+                    <div class="service-price">R$ 25,00</div>
+                    <button class="service-btn" onclick="selectService('unhas', 'Corte de Unhas', 25)">Escolher</button>
+                </div>
+
+                <div class="service-card" data-service="dentes">
+                    <div class="service-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h3>Limpeza Dental</h3>
+                    <p>Higienização completa dos dentes</p>
+                    <div class="service-price">R$ 80,00</div>
+                    <button class="service-btn" onclick="selectService('dentes', 'Limpeza Dental', 80)">Escolher</button>
+                </div>
+
+                <div class="service-card" data-service="spa">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Spa Day</h3>
+                    <p>Tratamento completo de relaxamento</p>
+                    <div class="service-price">R$ 120,00</div>
+                    <button class="service-btn" onclick="selectService('spa', 'Spa Day', 120)">Escolher</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section id="order" class="order-section">
+        <div class="container">
+            <h2 class="section-title">Faça seu Pedido</h2>
+            <div class="order-form-container">
+                <form id="orderForm" class="order-form">
+                    <div class="form-group">
+                        <label for="petName">Nome do Pet</label>
+                        <input type="text" id="petName" name="petName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="petType">Tipo de Animal</label>
+                        <select id="petType" name="petType" required>
+                            <option value="">Selecione...</option>
+                            <option value="cachorro">Cachorro</option>
+                            <option value="gato">Gato</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="petBreed">Raça</label>
+                        <input type="text" id="petBreed" name="petBreed" placeholder="Ex: Golden Retriever">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="petAge">Idade</label>
+                        <input type="text" id="petAge" name="petAge" placeholder="Ex: 2 anos">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="selectedService">Serviço Escolhido</label>
+                        <input type="text" id="selectedService" name="selectedService" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servicePrice">Preço</label>
+                        <input type="text" id="servicePrice" name="servicePrice" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ownerName">Nome do Responsável</label>
+                        <input type="text" id="ownerName" name="ownerName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preferredDate">Data Preferida</label>
+                        <input type="date" id="preferredDate" name="preferredDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preferredTime">Horário Preferido</label>
+                        <select id="preferredTime" name="preferredTime" required>
+                            <option value="">Selecione...</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="observations">Observações</label>
+                        <textarea id="observations" name="observations" rows="4" placeholder="Informações especiais sobre seu pet..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Pedido
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sobre Nós</h2>
+                    <p>Somos uma equipe apaixonada por animais, com mais de 10 anos de experiência no cuidado de pets. Nossa missão é proporcionar o melhor atendimento para seu melhor amigo.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <span>Profissionais Certificados</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Produtos de Qualidade</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <span>Cuidado com Amor</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Endereço</h3>
+                        <p>Rua dos Animais, 123<br>Centro - São Paulo/SP</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Telefone</h3>
+                        <p>(43) 98433-6883</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>E-mail</h3>
+                        <p>contato@petshoppremium.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Horário de Funcionamento</h3>
+                        <p>Seg-Sex: 8h às 18h<br>Sáb: 8h às 16h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-paw"></i>
+                    <span>PetShop Premium</span>
+                </div>
+                <p>&copy; 2024 PetShop Premium. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-button" id="whatsappBtn">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Fale conosco no WhatsApp</span>
+    </div>
+
+    <!-- Order Summary Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Resumo do Pedido</h2>
+            <div id="orderSummary"></div>
+            <div class="modal-actions">
+                <button class="btn-secondary" onclick="closeModal()">Fechar</button>
+                <button class="btn-primary" onclick="sendToWhatsApp()">
+                    <i class="fab fa-whatsapp"></i>
+                    Enviar para WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+</html>
